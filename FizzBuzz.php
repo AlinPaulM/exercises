@@ -14,5 +14,5 @@ function run(int $N, int $M): ?string {
     }
     $sequence = rtrim($sequence, ',');
 
-	return $sequence;
+    return $sequence;
 }
