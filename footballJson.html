@@ -1,0 +1,58 @@
+<!DOCYPE html>
+<html>
+    <head>
+    <title></title>
+    </head>
+    <body>
+    </body>
+</html>
+
+
+<script>
+/*
+We want to be able to see how many goals a specific football team in the Premier League scored in total during the 2014/2015 season.
+All the information you need is contained in this JSON file: https://s3.eu-west-1.amazonaws.com/hackajob-assets1.p.hackajob/challenges/football_session/football.json
+
+INPUT
+string teamKey
+^^ the football team key name (is a parameter of the JSON)
+
+OUTPUT
+int goals
+^^ an integer with the total number of goals scored by that team during the session
+
+EXAMPLE
+Input
+"arsenal"
+
+Output
+"X"
+^^ number of goals scored by Arsenal in that JSON
+*/
+function footballJson(teamKey) {
+	var total = null;
+
+	let request = new XMLHttpRequest();
+	request.open('GET', 'https://s3.eu-west-1.amazonaws.com/hackajob-assets1.p.hackajob/challenges/football_session/football.json', false);
+	request.send(null);
+
+	if (request.status === 200) {
+	  total = 0;
+	  var json = JSON.parse(request.responseText);
+
+	  for(var i = 0; i < json.rounds.length; i++) {
+	  	for(var j=0; j < json.rounds[i].matches.length; j++) {
+	  		if(json.rounds[i].matches[j].team1.key == teamKey)
+	  			total += json.rounds[i].matches[j].score1;
+	  		else if(json.rounds[i].matches[j].team2.key == teamKey)
+	  			total += json.rounds[i].matches[j].score2;
+	  	}
+	  }
+	}
+
+	return total;
+}
+
+console.log(footballJson("manutd"));
+document.body.innerHTML = footballJson("manutd");
+</script>
