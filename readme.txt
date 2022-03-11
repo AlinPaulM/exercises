@@ -1,0 +1,1 @@
+A bunch of exercises i did that i thought i should put in a repo

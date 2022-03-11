@@ -21,7 +21,7 @@ Output
 6
 */
 function maxSumOfSubarray(array $a): ?int {
-	$maxsum = max($a);
+    $maxsum = max($a);
 
     for($i = 2; $i <= count($a); $i++) { // pairs of 2+
         for($j = 0; $j <= count($a) - $i; $j++) { // from pos 0 up to pos

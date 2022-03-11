@@ -2,7 +2,7 @@
 
 // FIZZBUZZ
 function run(int $N, int $M): ?string {
-	if($N > $M) return null;
+    if($N > $M) return null;
 
     $sequence = '';
     for($i = $N; $i <=$M; ++$i){

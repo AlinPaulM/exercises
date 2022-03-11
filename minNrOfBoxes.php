@@ -9,8 +9,7 @@
 *
 * @return integer
 */
-function minNrOfBoxes(int $items, int $lc, int $sc) : int
-{
+function minNrOfBoxes(int $items, int $lc, int $sc) : int {
     $nr = 0;
 
     if($lc*5 == $items) {
